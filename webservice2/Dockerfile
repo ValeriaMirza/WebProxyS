@@ -1,7 +1,15 @@
 FROM python:3.9-slim
 
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+
+# Copy the requirements.txt file from the webservice1 folder into the container
+COPY webservice1/requirements.txt ./webservice2/requirements.txt
+
+# Install dependencies from the copied requirements.txt
+RUN pip install -r ./webservice2/requirements.txt
+
+# Copy the rest of your application code
 COPY . .
-CMD ["python", "app.py"]
+
+# Set the command to run your application
+CMD ["python", "./webservice2/app.py"]
