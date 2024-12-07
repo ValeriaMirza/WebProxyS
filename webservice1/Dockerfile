@@ -12,4 +12,4 @@ RUN pip install -r ./webservice1/requirements.txt
 COPY . .
 
 # Set the command to run your application
-CMD ["python", "app.py"]
+CMD ["python", "./webservice1/app.py"]
