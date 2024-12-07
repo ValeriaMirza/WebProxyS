@@ -1,37 +1,30 @@
 services:
   - name: webservice1
     type: web
-    env: python
+    runtime: docker
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python webservice1/app.py
     repo: https://github.com/ValeriaMirza/WebProxyS
     branch: main
     ports:
       - 5001
-    dockerfilePath: webservice1/Dockerfile
+    dockerfilePath: Dockerfile
 
   - name: webservice2
     type: web
-    env: python
+    runtime: docker
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python webservice2/app.py
     repo: https://github.com/ValeriaMirza/WebProxyS
     branch: main
     ports:
       - 5002
-    dockerfilePath: webservice2/Dockerfile
+    dockerfilePath: Dockerfile
 
   - name: nginx
     type: web
-    env: nginx
+    runtime: docker
     plan: free
-    buildCommand: echo 'Nginx setup complete'
-    startCommand: nginx -g 'daemon off;'
     repo: https://github.com/ValeriaMirza/WebProxyS
     branch: main
     ports:
       - 80
-    dockerfilePath: nginx/Dockerfile
-
+    dockerfilePath: Dockerfile
