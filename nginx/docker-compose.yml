@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  webservice1:
+    build:
+      context: .
+      dockerfile: webservice1/Dockerfile
+    container_name: webservice1
+    ports:
+      - "5001:5001"
+
+  webservice2:
+    build:
+      context: .
+      dockerfile: webservice2/Dockerfile
+    container_name: webservice2
+    ports:
+      - "5002:5002"
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - webservice1
+      - webservice2
