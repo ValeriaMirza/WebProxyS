@@ -1,25 +1,19 @@
 services:
   nginx:
-    image: nginx:latest
-    ports:
-      - "8080:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - webservice1
-      - webservice2
+    build:
+     context: ./nginx
+    image: webproxyco.azurecr.io/nginx:latest
 
   webservice1:
     build:
       context: ./webservice1
-    ports:
-      - "5001:5000"
+    image: webproxyco.azurecr.io/webservice1:latest
+    
   
   webservice2:
     build:
       context: ./webservice2
-    ports:
-      - "5002:5000"
+    image: webproxyco.azurecr.io/webservice2:latest
    
 
   
