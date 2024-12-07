@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: nginx-service
+    env: docker
+    plan: free
+    dockerfilePath: ./nginx/Dockerfile
+    autoDeploy: true
+
+  - type: web
+    name: webservice1
+    env: docker
+    plan: free
+    dockerfilePath: ./webservice1/Dockerfile
+    autoDeploy: true
+
+  - type: web
+    name: webservice2
+    env: docker
+    plan: free
+    dockerfilePath: ./webservice2/Dockerfile
+    autoDeploy: true
