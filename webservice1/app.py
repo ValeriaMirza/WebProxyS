@@ -6,12 +6,13 @@ app = Flask(__name__)
 def hello():
     if request.method == 'POST':
         user_input = request.form['user_input']
-        return jsonify({"message": f"Hello from WebService 1, you typed: {user_input}"})
+        return jsonify({"message": f"You have succesfully logged in, {user_input}"})
     
     return render_template_string("""
         <form method="POST">
-            <label for="user_input">Enter something:</label>
+            <label for="user_input">Username:</label>
             <input type="text" id="user_input" name="user_input">
+            <input type="text" id="password_input" name="password_input">
             <button type="submit">Submit</button>
         </form>
     """)
