@@ -7,7 +7,7 @@ app = Flask(__name__)
 # URLs of the existing web services
 web_service_urls = [
     "https://webproxys-1.onrender.com",
-    "https://webproxys-2.onrender.com/"
+    "https://webproxys-2.onrender.com"
 ]
 
 @app.route('/')
